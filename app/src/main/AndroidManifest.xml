@@ -15,6 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ResultActivity"> <!--액티비티가 추가될때 마다 xml에 만들어줘야함-->
+        </activity>
+
+
     </application>
 
 </manifest>

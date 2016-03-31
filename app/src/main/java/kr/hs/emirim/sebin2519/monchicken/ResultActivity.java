@@ -18,7 +18,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mResult=(TextView)findViewById(R.id.result);
-        mResult.setText("결과");
+        mResult.setText("결과"); //결과 출력
 
 
     }

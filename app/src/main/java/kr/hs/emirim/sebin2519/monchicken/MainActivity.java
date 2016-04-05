@@ -1,5 +1,6 @@
 package kr.hs.emirim.sebin2519.monchicken;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,5 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Toast.makeText(this,"**배고파요!(ㅜ. ㅜ)**",Toast.LENGTH_LONG).show();
         //Toast: 밑에 잠깐 나왔다가 사라지는 것(반드시 메소드가 있어야함 / 여러개의 메소드 연결: 체인 메서드
+        Intent intent =new Intent(this,ResultActivity.class);//객체 생성==>(문맥 ,넘어갈 엑티비티.확장자)
+        startActivity(intent);//받은 intent, 넘어가주세요!
     }
 }

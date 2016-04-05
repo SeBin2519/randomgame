@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() { //화면이 보여질 떄마다 실행
         super.onResume();
-        mName.setText("");
+        mName.setText(null);
     }
 
     /** < javaDoc >
@@ -36,9 +36,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     public void onClick(View v) {
-        Toast.makeText(this,"**배고파요!(ㅜ. ㅜ)**",Toast.LENGTH_LONG).show();
-        //Toast: 밑에 잠깐 나왔다가 사라지는 것(반드시 메소드가 있어야함 / 여러개의 메소드 연결: 체인 메서드
-        Intent intent =new Intent(this,ResultActivity.class);//객체 생성==>(문맥 ,넘어갈 엑티비티.확장자)
-        startActivity(intent);//받은 intent, 넘어가주세요!
+        //누른 순간에 입력한것을 받아옴
+        String name=mName.getText().toString();//내용을 읽어오세요: getText() - 단 retun타입이 Editable => toString으로 반환해주어야함
+
+        //name 출력
+//        if(name==null) {//이름이 NULL일 경우 예외처리작업
+//            Toast.makeText(this,"이름을 입력해 주세요!",Toast.LENGTH_LONG).show();
+//        }else {
+//            Toast.makeText(this, name + "씨 배고파요!(ㅜ. ㅜ)", Toast.LENGTH_LONG).show(); //상대방이 이름을 입력하지 않을경우 이상한 것이 뜸 => 예외처리해주어야함
+//            //Toast: 밑에 잠깐 나왔다가 사라지는 것(반드시 메소드가 있어야함 / 여러개의 메소드 연결: 체인 메서드
+//            Intent intent =new Intent(this,ResultActivity.class);//객체 생성==>(문맥 ,넘어갈 엑티비티.확장자)
+//            startActivity(intent);//받은 intent, 넘어가주세요!
+//        }
+
+        try{//트라이캐치
+            Toast.makeText(this, name + "씨 배고파요!(ㅜ. ㅜ)", Toast.LENGTH_LONG).show();
+            Intent intent =new Intent(this,ResultActivity.class);
+            startActivity(intent);
+        }catch(NullPointerException e){
+            Toast.makeText(this,"이름을 입력해 주세요!",Toast.LENGTH_LONG).show();
+        }catch(Exception e){ //모든 예외(나머지 예외)
+            Toast.makeText(this,"뭔지 모르지만 잘 안되네요!(ㅜ. ㅠ)",Toast.LENGTH_LONG).show();
+        }
     }
 }

@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try{//트라이캐치
             Toast.makeText(this, name + "씨 배고파요!(ㅜ. ㅜ)", Toast.LENGTH_LONG).show();
             Intent intent =new Intent(this,ResultActivity.class);
+            intent.putExtra("username",name);//Extra: 추가
+            intent.putExtra("age",10);//나이 넘기기
             startActivity(intent);
         }catch(NullPointerException e){
             Toast.makeText(this,"이름을 입력해 주세요!",Toast.LENGTH_LONG).show();

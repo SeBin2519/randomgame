@@ -3,6 +3,7 @@ package kr.hs.emirim.sebin2519.monchicken;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,5 +61,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }catch(Exception e){ //모든 예외(나머지 예외)
             Toast.makeText(this,"뭔지 모르지만 잘 안되네요!(ㅜ. ㅠ)",Toast.LENGTH_LONG).show();
         }
+
     }
 }

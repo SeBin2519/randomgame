@@ -25,9 +25,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onResume() { //화면이 보여질 떄마다 실행
+    protected void onResume() { //화면이 보여질 떄마다 실행, 액티비티가 다시 재개될때
         super.onResume();
         mName.setText(null);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     /** < javaDoc >
@@ -54,9 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, name + "씨 배고파요!(ㅜ. ㅜ)", Toast.LENGTH_LONG).show();
             Intent intent =new Intent(this,ResultActivity.class);
             intent.putExtra("username",name);//Extra: 추가
-            intent.putExtra("age",10);//나이 넘기기
+            intent.putExtra("age", 10);//나이 넘기기
             startActivity(intent);
-            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left); //(들어올때 애니메이션, 나갈때 애니메이션)
         }catch(NullPointerException e){
             Toast.makeText(this,"이름을 입력해 주세요!",Toast.LENGTH_LONG).show();
         }catch(Exception e) { //모든 예외(나머지 예외)

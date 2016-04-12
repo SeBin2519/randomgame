@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("username",name);//Extra: 추가
             intent.putExtra("age",10);//나이 넘기기
             startActivity(intent);
+            overridePendingTransition(0, R.anim.zoom_exit);
         }catch(NullPointerException e){
             Toast.makeText(this,"이름을 입력해 주세요!",Toast.LENGTH_LONG).show();
-        }catch(Exception e){ //모든 예외(나머지 예외)
-            Toast.makeText(this,"뭔지 모르지만 잘 안되네요!(ㅜ. ㅠ)",Toast.LENGTH_LONG).show();
+        }catch(Exception e) { //모든 예외(나머지 예외)
+            Toast.makeText(this, "뭔지 모르지만 잘 안되네요!(ㅜ. ㅠ)", Toast.LENGTH_LONG).show();
         }
-
     }
 }
